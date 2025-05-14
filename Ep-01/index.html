@@ -15,6 +15,7 @@
     </script>
   </body>
 </html> -->
+<!-- order of importing file is important, we can move   <script src ='./App.js'></script> because it is using react which is imported below -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -25,7 +26,9 @@
     <title>Namaste React</title>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <!-- <h1>Ashu is here</h1> it is replaced by root  -->
+    </div>
     <script
       crossorigin
       src="https://unpkg.com/react@18/umd/react.development.js"
