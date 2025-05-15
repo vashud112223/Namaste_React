@@ -697,6 +697,12 @@ try {
 // - Minificaation
 // - Bundling
 // - Compressing
+// Consistent hashing
+// Code splitting
+// differential Bundling
+// HTTPs
+// Tree shaking- remove unused code
+// different dev and prod build
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);

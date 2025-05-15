@@ -21,6 +21,12 @@
 // - Minificaation
 // - Bundling
 // - Compressing
+// Consistent hashing
+// Code splitting
+// differential Bundling
+// HTTPs
+// Tree shaking- remove unused code
+// different dev and prod build
 
 import React from "react";
 import ReactDOM from "react-dom/client"
