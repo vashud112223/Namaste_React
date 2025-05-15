@@ -1,0 +1,17 @@
+{
+  "name": "ep-03",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "parcel": "^2.15.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  }
+}
