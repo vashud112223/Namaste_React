@@ -1,0 +1,22 @@
+{
+  "name": "ep-02",
+  "version": "1.0.0",
+  "description": "this is namaste react",
+  "main": "App.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vashud112223/Namaste_React.git"
+  },
+  "author": "Ashutosh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vashud112223/Namaste_React/issues"
+  },
+  "homepage": "https://github.com/vashud112223/Namaste_React#readme",
+  "devDependencies": {
+    "parcel": "^2.15.0"
+  }
+}
