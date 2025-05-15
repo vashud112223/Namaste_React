@@ -2,8 +2,8 @@
   "name": "ep-02",
   "version": "1.0.0",
   "description": "this is namaste react",
-  "main": "App.js",
   "scripts": {
+    "start": "parcel index.html",
     "test": "jest"
   },
   "repository": {
@@ -18,5 +18,9 @@
   "homepage": "https://github.com/vashud112223/Namaste_React#readme",
   "devDependencies": {
     "parcel": "^2.15.0"
+  },
+  "dependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
   }
 }
