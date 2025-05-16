@@ -64,3 +64,4 @@ root.render(<HeadingComponent />); // this is how functional component is render
 //   return true;
 // }
 // these two functiona are same
+
