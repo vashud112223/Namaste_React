@@ -19,4 +19,4 @@ importing Header and Header.js is same
 - useState()
   - useEffect
   whenever a state vriable changes, react re-render the component
-  
+  useEffect-> when the callback functions called-> this callback functions called after the components renders
