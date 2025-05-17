@@ -7,3 +7,16 @@ if we are not using key then suppose new card is coming then react trat as a sam
 by giving th key we can optimize the performance
 we can index as a key also
 not using keys(not acceptable) <<<<< index as key <<<<<< unique id (best practices)
+there are two types of export
+1.default export/import
+export default components
+import {component} from "path"
+2. named export/import
+export const component
+import {component} from "path"
+importing Header and Header.js is same
+ React hooks are just normal javascript utility functions
+- useState()
+  - useEffect
+  whenever a state vriable changes, react re-render the component
+  
