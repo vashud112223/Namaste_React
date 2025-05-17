@@ -16,7 +16,7 @@ export const component
 import {component} from "path"
 importing Header and Header.js is same
  React hooks are just normal javascript utility functions
-- useState()
+- useState() hooks
   - useEffect
   whenever a state vriable changes, react re-render the component
   useEffect-> when the callback functions called-> this callback functions called after the components renders
