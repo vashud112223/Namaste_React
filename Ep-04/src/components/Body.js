@@ -1,6 +1,7 @@
 import RestaurantCard from "./RestaurantCard";
 import { useEffect, useState } from "react";
-import { restaurantList } from "../utils/mockData";
+import Shimmer from "./Shimmer";
+import resList from "../utils/mockData";
 
 const Body = () => {
   // Local State Variable- Super powerful variable
@@ -12,6 +13,7 @@ const Body = () => {
     const data = await fetch(
       "https://www.swiggy.com/mapi/restaurants/list/v5?offset=0&is-seo-homepage-enabled=true&lat=26.9537504&lng=81.00644419999999&carousel=true&third_party_vendor=1"
     );
+
     const res = await data.json();
     setListofRestaurants(
       res?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
@@ -20,7 +22,14 @@ const Body = () => {
       res?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   };
-  return (
+  // const fetchData = resList;
+  // setListofRestaurants(resList)
+  if (listOfRestaurants.length === 0) {
+    console.log("loading")
+    return <Shimmer/>
+  }
+  return listOfRestaurants.length === 0 ? (
+    <Shimmer/> )  :(
     <div className="body">
       <div className="filter">
         <button
