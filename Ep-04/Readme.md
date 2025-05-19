@@ -18,5 +18,10 @@ importing Header and Header.js is same
  React hooks are just normal javascript utility functions
 - useState() hooks
   - useEffect
-  whenever a state vriable changes, react re-render the component
+  whenever a state vriable changes, react trigger the recoiciliation(re-render the component)
   useEffect-> when the callback functions called-> this callback functions called after the components renders
+ # 2 types of Routing in web apps
+ Client Side Routing
+ Server Side Routing
+
+ Once the class is initiated first constructor is called then render is called

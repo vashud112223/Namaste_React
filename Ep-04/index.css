@@ -50,5 +50,17 @@
   padding: 5px;
   width: 250px;
   height: 490px;
-  background-color: "#f0f0f0";
+  background-color: rgb(189, 187, 187);
+   /* border: 1px solid black; */
+}
+.login{
+  padding: 0 20px;
+  cursor: pointer;
+}
+.filter{
+  display: flex;
+}
+.user-card{
+  padding: 10px;
+  border: 1px solid black;
 }

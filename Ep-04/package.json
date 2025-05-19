@@ -1,16 +1,20 @@
 {
   "name": "ep-04",
+  "description": "props are just normal function arguments.\r passing a props to a function is same as passing an argument to a function\r props are objects.\r config driven ui- the ui driven by config(api)\r always uses key while using map\r if we are not using key then suppose new card is coming then react trat as a same card so it will render the whole component\r by giving th key we can optimize the performance\r we can index as a key also\r not using keys(not acceptable) <<<<< index as key <<<<<< unique id (best practices)\r there are two types of export\r 1.default export/import\r export default components\r import {component} from \"path\"\r 2. named export/import\r export const component\r import {component} from \"path\"\r importing Header and Header.js is same\r  React hooks are just normal javascript utility functions\r - useState() hooks\r   - useEffect\r   whenever a state vriable changes, react trigger the recoiciliation(re-render the component)\r   useEffect-> when the callback functions called-> this callback functions called after the components renders",
   "version": "1.0.0",
-  "description": "props are just normal function arguments.\r passing a props to a function is same as passing an argument to a function\r props are objects.\r config driven ui- the ui driven by config(api)\r always uses key while using map\r if we are not using key then suppose new card is coming then react trat as a same card so it will render the whole component\r by giving th key we can optimize the performance\r we can index as a key also\r not using keys(not acceptable) <<<<< index as key <<<<<< unique id (best practices)\r there are two types of export\r 1.default export/import\r export default components\r import {component} from \"path\"\r 2. named export/import\r export const component\r import {component} from \"path\"\r importing Header and Header.js is same\r  React hooks are just normal javascript utility functions\r - useState()\r   - useEffect",
   "scripts": {
     "start": "parcel index.html",
     "test": "jest"
   },
-  "author": "Ashutosh",
+  "author": "",
   "license": "ISC",
+  "devDependencies": {
+    "@parcel/resolver-default": "^2.15.1"
+  },
   "dependencies": {
     "parcel": "^2.15.1",
     "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "react-router": "^7.6.0",
+    "react-router-dom": "^6.6.2"
   }
 }
