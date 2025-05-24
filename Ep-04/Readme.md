@@ -25,3 +25,8 @@ importing Header and Header.js is same
  Server Side Routing
 
  Once the class is initiated first constructor is called then render is called
+
+ Higher order Function - are those which takes function(enhance it) and return function
+
+ props drilling- when we are sending from one component to other component the other component
+ to remove this we are using React Context

@@ -1,9 +1,10 @@
-import RestaurantCard from "./RestaurantCard";
-import { use, useEffect, useState } from "react";
+import RestaurantCard, { withPromotedLabel } from "./RestaurantCard";
+import { use, useEffect, useState, useContext } from "react";
 import Shimmer from "./Shimmer";
 import resList from "../utils/mockData";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
 
 //  const [searchText, setSearchText] = useState(""); never create outside the body, it is used for creating local variable inside the functional component and always try to call on the top
 // never create useState inside if else or for loop , it will create inconsistency
@@ -12,6 +13,10 @@ const Body = () => {
   const [listOfRestaurants, setListofRestaurants] = useState(resList);
   const [filteredRestaurnat, setfilteredRestaurnat] = useState(resList);
   const [searchText, setSearchText] = useState("");
+
+  const RestaurantCardPromoted = withPromotedLabel(RestaurantCard);
+
+  const { setUserName,loggedIn } = useContext(UserContext);
   // console.log("body rendered");
 
   // if no dependency array => useEffect is called on every render
@@ -43,26 +48,24 @@ const Body = () => {
   // }
   // we cannot type the value in search box because value is bind to search text and it is empty, to change the value we have to use onchange method
   const OnlineStatus = useOnlineStatus();
-  if(OnlineStatus===false){
-    return (
-      <h1>Look like you re offline! Please check your connections</h1>
-    )
+  if (OnlineStatus === false) {
+    return <h1>Look like you re offline! Please check your connections</h1>;
   }
- 
+
   return (
     <div className="body">
-      <div className="filter">
-        <div className="search">
+      <div className="flex">
+        <div className="m-4 p-4">
           <input
             type="text"
-            className="search-box"
+            className="border border-solid border-black"
             value={searchText}
             onChange={(e) => {
               setSearchText(e.target.value);
             }}
           ></input>
           <button
-            className="search"
+            className="px-3 py-1 bg-green-100 m-3 rounded-lg"
             onClick={() => {
               console.log(searchText);
               const filterRestaurant = listOfRestaurants.filter((res) => {
@@ -76,25 +79,41 @@ const Body = () => {
             Search
           </button>
         </div>
-        <button
-          className="filter-btn"
-          onClick={() => {
-            const filteredList = listOfRestaurants.filter(
-              (res) => res?.info?.avgRating > 4.3
-            );
-            setfilteredRestaurnat(filteredList);
-          }}
-        >
-          Top Rated restaurants
-        </button>
+        <div className="m-4 p-4 flex items-center">
+          <button
+            className="px-2 py-1 bg-gray-100  rounded-lg"
+            onClick={() => {
+              const filteredList = listOfRestaurants.filter(
+                (res) => res?.info?.avgRating > 4.3
+              );
+              setfilteredRestaurnat(filteredList);
+            }}
+          >
+            Top Rated restaurants
+          </button>
+          <div className="m-4 p-4 flex items-center">
+            <label className="p-2">UserName: </label>
+            <input
+              className="border border-black p-2"
+              type="text"
+              value={loggedIn}
+              onChange={(e) => setUserName(e.target.value)}
+            ></input>
+          </div>
+        </div>
       </div>
-      <div className="res-container">
+      <div className="flex flex-wrap">
         {filteredRestaurnat.map((restaurant) => (
           <Link
             key={restaurant.info.id}
             to={"/restaurant/" + restaurant.info.id}
           >
-            <RestaurantCard resData={restaurant} />
+            {/** if the restaurnat is promoted then add a promoted label to it */}
+            {restaurant.info.promoted ? (
+              <RestaurantCardPromoted resData={restaurant} />
+            ) : (
+              <RestaurantCard resData={restaurant} />
+            )}
           </Link>
         ))}
       </div>

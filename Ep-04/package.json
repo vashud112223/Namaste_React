@@ -9,10 +9,13 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@parcel/resolver-default": "^2.15.1"
+    "@parcel/resolver-default": "^2.15.1",
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.3",
+    "tailwind": "^4.0.0",
+    "tailwindcss": "^4.1.7"
   },
   "dependencies": {
-    "parcel": "^2.15.1",
     "react": "^19.1.0",
     "react-router": "^7.6.0",
     "react-router-dom": "^6.6.2"

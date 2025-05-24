@@ -1,4 +1,4 @@
-import React,{lazy,Suspense} from "react";
+import React, { lazy, Suspense, useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
@@ -7,6 +7,7 @@ import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
+import UserContext from "./utils/UserContext";
 // import Grocery from "./components/Grocery";
 
 // Chunking
@@ -16,15 +17,27 @@ import RestaurantMenu from "./components/RestaurantMenu";
 //on demand loading
 // Using these technique we can increase the performance
 
-const Grocery = lazy(()=> import("./components/Grocery"))
+const Grocery = lazy(() => import("./components/Grocery"));
 
 // createBrowserRouter is used to create the path and RouterProvider is used to provide the configuration to our app
 const AppLayout = () => {
+  const [userName, setUserName] = useState();
+
+  useEffect(() => {
+    const data = {
+      name: "Ashutosh",
+    };
+    setUserName(data.name);
+  }, []);
   return (
-    <div className="app">
-      <Header />
-      <Outlet />
-    </div>
+    <UserContext.Provider value={{ loggedIn: userName,setUserName }}>
+      <div className="app">
+        <UserContext.Provider value={{ loggedIn: "Aman" }}>
+        <Header />
+        </UserContext.Provider>
+        <Outlet />
+      </div>
+    </UserContext.Provider>
   );
 };
 
@@ -52,7 +65,11 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/grocery",
-        element: <Suspense fallback ={<h1>Loading....</h1>}><Grocery /></Suspense>,
+        element: (
+          <Suspense fallback={<h1>Loading....</h1>}>
+            <Grocery />
+          </Suspense>
+        ),
       },
     ],
 
